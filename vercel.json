@@ -1,29 +1,19 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "routes": [
+  "version": 2,
+  "builds": [
     {
-      "src": "/admin",
-      "dest": "/admin.html"
+      "src": "*.html",
+      "use": "@vercel/static"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "src": "*.js",
+      "use": "@vercel/static"
     }
   ],
-  "headers": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        }
-      ]
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
